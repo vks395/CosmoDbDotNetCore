@@ -1,0 +1,24 @@
+@model IEnumerable<TicketBookingApp.Models.TicketEntry>
+
+<h2>Tickets</h2>
+<a asp-action="Create">Create New Ticket</a>
+<table class="table">
+    <thead>
+        <tr><th>Ticket No</th><th>Username</th><th>Train No</th><th>Booking Date</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.TicketNo</td>
+                <td>@item.Username</td>
+                <td>@item.TrainNo</td>
+                <td>@item.BookingDate</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
